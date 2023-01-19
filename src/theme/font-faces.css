@@ -1,0 +1,20 @@
+/**
+  Adding font-face into GlobalStyle using createGlobalStyle from 
+  styled-components causes font flicker aka FOUT
+  See the issue:
+  https://github.com/styled-components/styled-components/issues/2900#issuecomment-560121158
+*/
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url(./fonts/AvenirNextLTPro-Regular.otf) format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Avenir Next';
+  src: url(./fonts/AvenirNextLTPro-Bold.otf) format('opentype');
+  font-weight: bold;
+  font-style: normal;
+}
