@@ -17,4 +17,5 @@ export const Button = styled.button.attrs(props => ({
   color: ${({ theme }) => theme.color.textLight};
   font-size: 14px;
   font-weight: bold;
+  cursor: pointer;
 `;
