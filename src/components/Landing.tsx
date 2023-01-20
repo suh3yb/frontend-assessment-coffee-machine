@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Step } from '../shared/Step';
-import { ReactComponent as CoffeeMachineSvg } from '../images/coffee-machine.svg';
-import { ReactComponent as MobilePhoneSvg } from '../images/mobile-phone.svg';
+import { Layout } from './shared/Layout';
+import { ReactComponent as CoffeeMachineSvg } from './images/coffee-machine.svg';
+import { ReactComponent as MobilePhoneSvg } from './images/mobile-phone.svg';
 
 const Illustration = styled.div`
   position: relative;
@@ -38,7 +38,7 @@ const HowItWorksBtn = styled.button`
   cursor: pointer;
 `;
 
-const InitialStep: React.FC = () => {
+const Landing: React.FC = () => {
   // @TODO
   // implement how it works modal
   //
@@ -48,14 +48,14 @@ const InitialStep: React.FC = () => {
   // }, []);
 
   return (
-    <Step subtitle="Dark Roasted Beans" title="Tab the machine to start">
+    <Layout subtitle="Dark Roasted Beans" title="Tab the machine to start">
       <Illustration>
         <CoffeeMachine />
         <MobilePhone />
       </Illustration>
       <HowItWorksBtn type="button">How does this work?</HowItWorksBtn>
-    </Step>
+    </Layout>
   );
 };
 
-export default InitialStep;
+export default Landing;

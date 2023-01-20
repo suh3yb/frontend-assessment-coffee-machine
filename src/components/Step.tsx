@@ -1,8 +1,9 @@
 import React, { useMemo } from 'react';
 import styled from 'styled-components';
-import { Button } from '../shared/Button';
 
-import { Step } from '../shared/Step';
+import type { Action } from '../types';
+import { Layout } from './shared/Layout';
+import { Button as BaseButton } from './shared/Button';
 
 type Option = { _id: string; name: string };
 
@@ -10,11 +11,20 @@ interface Props {
   subtitle: string;
   title: string;
   options: Option[];
+  dispatch: React.Dispatch<Action>;
 }
 
-const OptionList = styled.ul``;
+const OptionList = styled.ul`
+  padding: 0 16px;
+`;
 
-const SelectionStep: React.FC<Props> = ({ subtitle, title, options }) => {
+const Button = styled(BaseButton)`
+  &:not(:last-child) {
+    margin-bottom: 8px;
+  }
+`;
+
+const Step: React.FC<Props> = ({ subtitle, title, options }) => {
   const mapOptionsToButtons = useMemo(
     () =>
       options.map(option => (
@@ -26,10 +36,10 @@ const SelectionStep: React.FC<Props> = ({ subtitle, title, options }) => {
   );
 
   return (
-    <Step subtitle={subtitle} title={title}>
+    <Layout subtitle={subtitle} title={title}>
       <OptionList>{mapOptionsToButtons}</OptionList>
-    </Step>
+    </Layout>
   );
 };
 
-export default SelectionStep;
+export default Step;

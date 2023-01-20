@@ -17,7 +17,7 @@ const Subtitle = styled(Heading)`
   margin-bottom: 4px;
 `;
 
-export const Step: React.FC<Props> = ({ subtitle, title, children }) => (
+export const Layout: React.FC<Props> = ({ subtitle, title, children }) => (
   <>
     <Header>
       <Subtitle variant="subtitle">{subtitle}</Subtitle>
