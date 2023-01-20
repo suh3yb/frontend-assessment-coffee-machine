@@ -5,10 +5,11 @@ import {
   DEFAULT_ERROR_MESSAGE,
   getErrorMessage,
 } from '../utils/getErrorMessage';
+import type { MachineId } from './useCoffeeMachineConnection';
 
-type UseCoffeeData = (machineId: string) => {
+type UseCoffeeData = (machineId: MachineId) => {
   coffeeData: CoffeeDataResponse | undefined;
-  error: unknown; // @TODO update error type
+  error: string | undefined;
   isLoading: boolean;
 };
 
@@ -18,7 +19,7 @@ export const useCoffeeData: UseCoffeeData = machineId => {
   const [coffeeData, setCoffeeData] = useState<
     CoffeeDataResponse | undefined
   >();
-  const [error, setError] = useState<unknown>();
+  const [error, setError] = useState<string | undefined>();
 
   const fetchCoffeeData = useCallback(async () => {
     try {
@@ -34,12 +35,17 @@ export const useCoffeeData: UseCoffeeData = machineId => {
   }, [machineId]);
 
   useEffect(() => {
-    fetchCoffeeData();
-  }, [fetchCoffeeData]);
+    if (machineId) {
+      fetchCoffeeData();
+    } else {
+      setCoffeeData(undefined);
+      setError(undefined);
+    }
+  }, [fetchCoffeeData, machineId]);
 
   return {
     coffeeData,
     error,
-    isLoading: !coffeeData && !error,
+    isLoading: machineId ? !coffeeData && !error : false,
   };
 };
