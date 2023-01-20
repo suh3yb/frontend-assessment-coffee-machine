@@ -8,6 +8,7 @@ declare module 'styled-components' {
       error: string;
       buttonBgLight: string;
       buttonBgDark: string;
+      buttonImgBg: string;
       textDark: string;
       textLight: string;
     };

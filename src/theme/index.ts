@@ -6,8 +6,9 @@ export const theme: DefaultTheme = {
   color: {
     background: '#FFF',          // white
     error: '#CC3333',            // red
-    buttonBgLight: '#AED7A0',    // green
-    buttonBgDark: '#9BC88B',     // darker green
+    buttonBgLight: '#AED7A0',    // light green
+    buttonBgDark: '#9BC88B',     // green
+    buttonImgBg: '#219653',      // dark green
     textDark: '#000',            // black
     textLight: '#FFF',           // white
     },
