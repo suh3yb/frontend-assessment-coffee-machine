@@ -25,7 +25,7 @@ const MobilePhone = styled(MobilePhoneSvg)`
 `;
 /**
  * @TODO
- * add animation
+ * add animation & fix overlow
  */
 
 const HowItWorksBtn = styled.button`
