@@ -20,3 +20,17 @@ export interface CoffeeDataResponse {
     }[];
   }[];
 }
+
+export interface State {
+  activeStepIndex: number;
+  selectedType: string | null;
+  selectedSize: string | null;
+  selectedExtras: string[] | [];
+}
+
+export type Action =
+  | { type: 'setActiveStepIndex'; payload: number }
+  | { type: 'setType'; payload: string }
+  | { type: 'setSize'; payload: string }
+  | { type: 'addExtra'; payload: string }
+  | { type: 'reset' };
