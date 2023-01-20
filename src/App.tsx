@@ -1,27 +1,27 @@
 import React from 'react';
-import styled, { ThemeProvider } from 'styled-components';
-
-import { theme, GlobalStyle } from './theme';
-import './theme/font-faces.css';
+import styled from 'styled-components';
 
 import { useWizard } from './hooks/useWizard';
 import { useCoffeeMachineConnection } from './hooks/useCoffeeMachineConnection';
+import { useCoffeeData } from './hooks/useCoffeeData';
+import Landing from './components/Landing';
 
 const Main = styled.main`
   min-height: 100vh;
 `;
 
 const App: React.FC = () => {
-  const { machineId, isConnecting } = useCoffeeMachineConnection();
-  const { CurrentStep } = useWizard(machineId);
+  const machineId = useCoffeeMachineConnection();
+  const { coffeeData, error, isLoading } = useCoffeeData(machineId);
+  const ActiveStep = useWizard(coffeeData);
 
+  // @TODO update error message, add spinner
   return (
-    <ThemeProvider theme={theme}>
-      <GlobalStyle />
-      <Main>
-        <CurrentStep />
-      </Main>
-    </ThemeProvider>
+    <Main>
+      {error && <h1>{error}</h1>}
+      {isLoading && <p>SPINNER</p>}
+      {ActiveStep ? ActiveStep : <Landing />}
+    </Main>
   );
 };
 
