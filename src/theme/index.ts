@@ -9,7 +9,7 @@ export const theme: DefaultTheme = {
     buttonBgLight: '#AED7A0',    // green
     buttonBgDark: '#9BC88B',     // darker green
     textDark: '#000',            // black
-    textLight: '#000',           // white
+    textLight: '#FFF',           // white
     },
 };
 

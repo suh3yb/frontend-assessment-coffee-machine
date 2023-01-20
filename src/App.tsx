@@ -4,19 +4,19 @@ import styled, { ThemeProvider } from 'styled-components';
 import { theme, GlobalStyle } from './theme';
 import './theme/font-faces.css';
 
-interface Props {
-  children?: React.ReactNode;
-}
+import InitialStep from './components/steps/InitialStep';
 
 const Main = styled.main`
   min-height: 100vh;
 `;
 
-const App: React.FC<Props> = ({ children }) => {
+const App: React.FC = () => {
   return (
     <ThemeProvider theme={theme}>
       <GlobalStyle />
-      <Main>{children}</Main>
+      <Main>
+        <InitialStep />
+      </Main>
     </ThemeProvider>
   );
 };
