@@ -13,14 +13,14 @@ const Main = styled.main`
 const App: React.FC = () => {
   const machineId = useCoffeeMachineConnection();
   const { coffeeData, error, isLoading } = useCoffeeData(machineId);
-  const ActiveStep = useWizard(coffeeData);
+  const Steps = useWizard(coffeeData);
 
   // @TODO update error message, add spinner
   return (
     <Main>
       {error && <h1>{error}</h1>}
       {isLoading && <p>SPINNER</p>}
-      {ActiveStep ? ActiveStep : <Landing />}
+      {Steps ? Steps : <Landing />}
     </Main>
   );
 };
