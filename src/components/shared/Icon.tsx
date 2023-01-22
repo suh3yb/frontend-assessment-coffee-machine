@@ -6,7 +6,8 @@ import { ReactComponent as SizeSmall } from '../images/size-small.svg';
 import { ReactComponent as SizeMedium } from '../images/size-medium.svg';
 import { ReactComponent as SizeLarge } from '../images/size-large.svg';
 import { ReactComponent as Milk } from '../images/milk.svg';
-import { ReactComponent as ChevronRight } from '../images/chevron-right.svg';
+import { ReactComponent as ChevronLeft } from '../images/chevron-left.svg';
+import { ReactComponent as Checkmark } from '../images/checkmark.svg';
 
 interface Props {
   name: string;
@@ -21,7 +22,8 @@ const iconMap: Record<string, React.FunctionComponent> = {
   '60ba18d13ca8c43196b5f606': SizeLarge, // large
   '60ba197c2e35f2d9c786c525': Cappuccino, // sugar
   '60ba34a0c45ecee5d77a0263': Milk,
-  chevronRight: ChevronRight,
+  chevronLeft: ChevronLeft,
+  checkmark: Checkmark,
 };
 
 export const Icon: React.FC<Props> = ({ name }) => {
