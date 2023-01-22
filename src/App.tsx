@@ -1,14 +1,9 @@
 import React from 'react';
-import styled from 'styled-components';
 
 import { useWizard } from './hooks/useWizard';
 import { useCoffeeMachineConnection } from './hooks/useCoffeeMachineConnection';
 import { useCoffeeData } from './hooks/useCoffeeData';
 import Landing from './components/Landing';
-
-const Main = styled.main`
-  min-height: 100vh;
-`;
 
 const App: React.FC = () => {
   const machineId = useCoffeeMachineConnection();
@@ -17,11 +12,11 @@ const App: React.FC = () => {
 
   // @TODO update error message, add spinner
   return (
-    <Main>
+    <main>
       {error && <h1>{error}</h1>}
       {isLoading && <p>SPINNER</p>}
       {Steps ? Steps : <Landing />}
-    </Main>
+    </main>
   );
 };
 

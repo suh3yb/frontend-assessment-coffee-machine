@@ -27,7 +27,7 @@ interface Props {
 }
 
 const calculateMaxHeight = (nrOfSubselections: number) => {
-  return BUTTON_HEIGHT + nrOfSubselections * (SUB_BUTTON_HEIGHT + 8) + 32;
+  return BUTTON_HEIGHT + nrOfSubselections * (SUB_BUTTON_HEIGHT + 8) + 36;
 };
 
 const Button = styled(BaseButton)`

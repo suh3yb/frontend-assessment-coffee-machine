@@ -13,6 +13,7 @@ interface Props {
 }
 
 const Section = styled.section`
+  min-height: 100vh;
   flex: 0 0 ${PAGE_WIDTH}px;
 `;
 
