@@ -38,9 +38,10 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   button {
-    color: transparent;
+    color: ${({ theme }) => theme.color.textDark};
     background: transparent;
     border: 0;
+    font-family: inherit;
     line-height: 0;
     font-size: 1em;
   }
