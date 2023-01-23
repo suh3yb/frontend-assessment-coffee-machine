@@ -1,14 +1,31 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 
 import { Layout } from './shared/Layout';
 import { ReactComponent as CoffeeMachineSvg } from './images/coffee-machine.svg';
 import { ReactComponent as MobilePhoneSvg } from './images/mobile-phone.svg';
 
+const easein = keyframes`
+  30% {
+    transform: translateX(0) scale(1);
+  }
+
+  70% {
+    transform: translateX(0) scale(1);
+  }
+
+  90{
+    transform: translateX(40px) scale(1.05);
+  }
+`;
+
 const Illustration = styled.div`
   position: relative;
-  margin-top: 80px;
+  margin-top: 60px;
   margin-bottom: 32px;
+  /* to compansate svg being cut */
+  padding-top: 20px;
+  overflow: hidden;
 `;
 
 const CoffeeMachine = styled(CoffeeMachineSvg)`
@@ -18,15 +35,12 @@ const CoffeeMachine = styled(CoffeeMachineSvg)`
 
 const MobilePhone = styled(MobilePhoneSvg)`
   position: absolute;
-  top: 0;
+  top: 20px;
   right: 0;
   height: 267px;
-  transform: translateX(16px) scale(1.05);
+  transform: translateX(40px) scale(1.05);
+  animation: ${easein} 6s 2s infinite;
 `;
-/**
- * @TODO
- * add animation & fix overlow
- */
 
 const HowItWorksBtn = styled.button`
   display: inline-block;

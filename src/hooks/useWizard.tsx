@@ -73,16 +73,21 @@ export const useWizard: UseWizard = () => {
     dispatch({ type: 'setCoffeeData', payload: coffeeData });
   }, [coffeeData]);
 
-  if (error || isLoading) {
+  if (error) {
     return (
       <PageContainer>
-        {error && <ErrorMessage>{error}</ErrorMessage>}
-        {isLoading && <Spinner />}
+        <ErrorMessage>{error}</ErrorMessage>
       </PageContainer>
     );
   }
 
-  if (!state.coffeeData) {
+  if (isLoading || (coffeeData && !state.coffeeData)) {
+    return (
+      <PageContainer>
+        <Spinner />
+      </PageContainer>
+    );
+  } else if (!state.coffeeData) {
     return <Landing />;
   }
 
