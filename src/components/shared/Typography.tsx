@@ -28,3 +28,9 @@ export const Heading = styled.h2.attrs<HeadingProps>(props => ({
           letter-spacing: 0.374px;
         `}}
 `;
+
+export const ErrorMessage = styled.p`
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: ${({ theme }) => theme.color.error};
+`;

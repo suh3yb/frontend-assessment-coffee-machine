@@ -1,11 +1,15 @@
 import React, { useEffect, useReducer } from 'react';
+import styled from 'styled-components';
 
-import type { CoffeeDataResponse, State, Action } from '../types';
+import type { State, Action } from '../types';
 import Steps from '../components/Steps';
+import { useCoffeeMachineConnection } from './useCoffeeMachineConnection';
+import { useCoffeeData } from './useCoffeeData';
+import { ErrorMessage } from '../components/shared/Typography';
+import { Spinner } from '../components/shared/Spinner';
+import Landing from '../components/Landing';
 
-type UseWizard = (
-  coffeeData: CoffeeDataResponse | undefined
-) => React.ReactNode | null;
+type UseWizard = () => React.ReactNode;
 
 const initialState: State = {
   coffeeData: undefined,
@@ -52,7 +56,16 @@ const reducer = (state: State, action: Action): State => {
   }
 };
 
-export const useWizard: UseWizard = coffeeData => {
+const PageContainer = styled.div`
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const useWizard: UseWizard = () => {
+  const machineId = useCoffeeMachineConnection();
+  const { coffeeData, error, isLoading } = useCoffeeData(machineId);
   const [state, dispatch] = useReducer(reducer, initialState);
 
   useEffect(() => {
@@ -60,7 +73,18 @@ export const useWizard: UseWizard = coffeeData => {
     dispatch({ type: 'setCoffeeData', payload: coffeeData });
   }, [coffeeData]);
 
-  if (!coffeeData) return null;
+  if (error || isLoading) {
+    return (
+      <PageContainer>
+        {error && <ErrorMessage>{error}</ErrorMessage>}
+        {isLoading && <Spinner />}
+      </PageContainer>
+    );
+  }
+
+  if (!state.coffeeData) {
+    return <Landing />;
+  }
 
   return <Steps state={state} dispatch={dispatch} />;
 };

@@ -11,7 +11,7 @@ interface Props {
     name: string;
     subselection?: { id: string; name: string };
   };
-  onClick: any; // @TODO update type
+  onClick: () => void;
 }
 
 const Wrapper = styled.li`
