@@ -9,6 +9,7 @@ import {
   SubButton as BaseSubButton,
 } from './Button';
 import { Icon } from './Icon';
+import { Separator as BaseSeparator } from './Separator';
 
 interface Props {
   option: Extra;
@@ -44,10 +45,8 @@ const Button = styled(BaseButton)`
 
 const SubselectionWrapper = styled.div``;
 
-const Separator = styled.div`
-  margin: 0 24px 16px;
-  height: 1px;
-  background-color: ${({ theme }) => theme.color.textLight};
+const Separator = styled(BaseSeparator)`
+  margin-bottom: 16px;
 `;
 
 const SubselectionList = styled.ul`
@@ -100,8 +99,6 @@ const SubButton = styled(BaseSubButton)<{ isSelected: boolean }>`
     margin-bottom: 8px;
   }
 
-  display: flex;
-  align-items: center;
   justify-content: space-between;
 
   & > svg {
