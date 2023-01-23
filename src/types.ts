@@ -58,4 +58,8 @@ export type Action =
         subselection: { id: string; name: string };
       };
     }
+  | {
+      type: 'removeExtra';
+      payload: string; // extra id
+    }
   | { type: 'reset' };

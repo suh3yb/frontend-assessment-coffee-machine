@@ -123,7 +123,6 @@ export const OptionWithSubselection: React.FC<Props> = ({
 
   useEffect(() => {
     if (!Object.keys(selectedExtras).includes(option._id)) {
-      setIsOptionSelected(false);
       setSelectedSuboption(null);
     }
   }, [option._id, selectedExtras]);

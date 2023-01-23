@@ -14,7 +14,7 @@ export const useCoffeeMachineConnection: UseCoffeeMachineConnection = () => {
 
     const timeoutMachineId = window.setTimeout(() => {
       setMachineId(MOCK_MACHINE_ID);
-    }, 8000);
+    }, 0);
 
     return () => {
       window.clearTimeout(timeoutMachineId);

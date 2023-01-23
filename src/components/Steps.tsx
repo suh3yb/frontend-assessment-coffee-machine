@@ -6,6 +6,7 @@ import CoffeeTypeStep from './steps/CoffeeTypeStep';
 import CoffeeSizeStep from './steps/CoffeeSizeStep';
 import CoffeeExtrasStep from './steps/CoffeeExtrasStep';
 import OverviewStep from './steps/OverviewStep';
+import { ErrorMessage } from './shared/Typography';
 
 interface Props {
   state: State;
@@ -17,6 +18,7 @@ const PAGE_WIDTH = 375;
 const Container = styled.div`
   width: 100vw;
   max-width: ${PAGE_WIDTH}px;
+  margin: 0 auto;
   overflow: hidden;
 `;
 
@@ -29,6 +31,7 @@ const Wrapper = styled.div<{ activeStepIndex: number }>`
   transform: translateX(
     ${({ activeStepIndex }) => activeStepIndex * PAGE_WIDTH * -1}px
   );
+  transition: transform 0.7s ease;
 `;
 
 const Steps: React.FC<Props> = ({ state, dispatch }) => {
@@ -53,7 +56,13 @@ const Steps: React.FC<Props> = ({ state, dispatch }) => {
     state.selectedExtras,
   ]);
 
-  if (!state.coffeeData) return null; // @TODO update here
+  if (!state.coffeeData) {
+    return (
+      <ErrorMessage>
+        Coffee data is missing, please refresh the page
+      </ErrorMessage>
+    );
+  }
 
   return (
     <Container>

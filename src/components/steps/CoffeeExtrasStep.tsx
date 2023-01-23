@@ -1,4 +1,4 @@
-import React, { useCallback, useMemo } from 'react';
+import React, { useCallback, useEffect, useMemo } from 'react';
 
 import { Action, State } from '../../types';
 import { OptionWithSubselection } from '../shared/OptionWithSubselection';
@@ -11,6 +11,28 @@ interface Props {
 }
 
 const CoffeeExtrasStep: React.FC<Props> = ({ state, dispatch }) => {
+  useEffect(() => {
+    // Go to overview if all extras are selected
+    if (!state.availableExtras || state.activeStepIndex !== 2) return;
+
+    let isAllSelected = true;
+
+    state.availableExtras.forEach(extra => {
+      if (!Object.keys(state.selectedExtras).includes(extra._id)) {
+        isAllSelected = false;
+      }
+    });
+
+    if (isAllSelected) {
+      dispatch({ type: 'setActiveStepIndex', payload: 3 });
+    }
+  }, [
+    dispatch,
+    state.activeStepIndex,
+    state.availableExtras,
+    state.selectedExtras,
+  ]);
+
   const handleBackButton = useCallback(() => {
     dispatch({ type: 'setActiveStepIndex', payload: 1 });
   }, [dispatch]);

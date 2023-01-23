@@ -49,6 +49,13 @@ const reducer = (state: State, action: Action): State => {
           },
         },
       };
+    case 'removeExtra':
+      const updatedSelectedExtras = { ...state.selectedExtras };
+      delete updatedSelectedExtras[action.payload];
+      return {
+        ...state,
+        selectedExtras: updatedSelectedExtras,
+      };
     case 'reset':
       return { ...initialState, coffeeData: state.coffeeData };
     default:
