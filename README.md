@@ -1,6 +1,15 @@
-# Getting Started with Create React App
+# Brew Coffee App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a project that mimics an app that allows users to brew their favourite coffee by connecting a coffee machine and selecting different options.  
+It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+**Node version v18.13.0 was used while building this project.**
+
+## Application usage
+
+- To mock an NFC connection, app will use a certain coffee machine id and fetch the data using that id.
+- If you wait around 8 seconds, some coffee styles should appear on the page. From there you can select any combination.
+- In the overview step you will see all the selection you made. If you click 'Brew your coffee' button, you will see an alert and all selection will be cleared.
 
 ## Available Scripts
 
