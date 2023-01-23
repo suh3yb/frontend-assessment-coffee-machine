@@ -1,5 +1,7 @@
 import { DefaultTheme, createGlobalStyle } from 'styled-components';
 
+export const PAGE_WIDTH = 375;
+
 export const theme: DefaultTheme = {
   borderRadius: '4px',
   // prettier-ignore

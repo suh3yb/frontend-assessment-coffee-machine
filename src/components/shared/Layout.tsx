@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { PAGE_WIDTH } from '../../App';
+import { PAGE_WIDTH } from '../../theme';
 import { Heading } from './Typography';
 
 interface Props {

@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
+import { PAGE_WIDTH } from '../theme';
 import type { State, Action } from '../types';
-import { PAGE_WIDTH } from '../App';
 import CoffeeTypeStep from './steps/CoffeeTypeStep';
 import CoffeeSizeStep from './steps/CoffeeSizeStep';
 import CoffeeExtrasStep from './steps/CoffeeExtrasStep';
