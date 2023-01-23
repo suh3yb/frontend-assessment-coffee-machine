@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import styled from 'styled-components';
 
 import type { State, Action } from '../types';
+import { PAGE_WIDTH } from '../App';
 import CoffeeTypeStep from './steps/CoffeeTypeStep';
 import CoffeeSizeStep from './steps/CoffeeSizeStep';
 import CoffeeExtrasStep from './steps/CoffeeExtrasStep';
@@ -12,8 +13,6 @@ interface Props {
   state: State;
   dispatch: React.Dispatch<Action>;
 }
-
-const PAGE_WIDTH = 375;
 
 const Container = styled.div`
   width: 100vw;
@@ -67,9 +66,9 @@ const Steps: React.FC<Props> = ({ state, dispatch }) => {
   return (
     <Container>
       <Wrapper activeStepIndex={state.activeStepIndex}>
-        <CoffeeTypeStep coffeeData={state.coffeeData} dispatch={dispatch} />
+        <CoffeeTypeStep state={state} dispatch={dispatch} />
         {state.availableSizes && (
-          <CoffeeSizeStep sizes={state.availableSizes} dispatch={dispatch} />
+          <CoffeeSizeStep state={state} dispatch={dispatch} />
         )}
         {state.availableExtras && (
           <CoffeeExtrasStep state={state} dispatch={dispatch} />

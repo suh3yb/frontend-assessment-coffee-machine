@@ -1,9 +1,8 @@
 import React from 'react';
 import styled from 'styled-components';
 
+import { PAGE_WIDTH } from '../../App';
 import { Heading } from './Typography';
-
-export const PAGE_WIDTH = 375;
 
 interface Props {
   subtitle: React.ReactNode;
