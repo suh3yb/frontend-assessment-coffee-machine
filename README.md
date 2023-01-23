@@ -1,9 +1,9 @@
 # Brew Coffee App
 
 This is a project that mimics an app that allows users to brew their favourite coffee by connecting a coffee machine and selecting different options.  
-It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-**Node version v18.13.0 was used while building this project.**
+**Node version v18.13.0 was used while building this project.**  
 **The project is not built responsive. Until it supports more screen sizes, it looks the best in 375x812 resolution/screen dimension**
 
 ## Application usage
