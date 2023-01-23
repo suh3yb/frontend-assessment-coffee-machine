@@ -1,3 +1,5 @@
+import { Dispatch } from 'react';
+
 export interface CoffeeType {
   _id: string;
   name: string;
@@ -63,3 +65,8 @@ export type Action =
       payload: string; // extra id
     }
   | { type: 'reset' };
+
+export interface StepProps {
+  state: State;
+  dispatch: Dispatch<Action>;
+}

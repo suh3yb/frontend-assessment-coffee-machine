@@ -1,16 +1,11 @@
 import React, { useCallback, useMemo } from 'react';
 
-import { Action, Size } from '../../types';
+import { StepProps } from '../../types';
 import { Option } from '../shared/Option';
 import { Layout } from '../shared/Layout';
 import { BackButton } from '../shared/BackButton';
 
-interface Props {
-  sizes: Size[];
-  dispatch: React.Dispatch<Action>;
-}
-
-const CoffeeSizeStep: React.FC<Props> = ({ sizes, dispatch }) => {
+const CoffeeSizeStep: React.FC<StepProps> = ({ state, dispatch }) => {
   const handleBackButton = useCallback(() => {
     dispatch({ type: 'setActiveStepIndex', payload: 0 });
   }, [dispatch]);
@@ -25,10 +20,10 @@ const CoffeeSizeStep: React.FC<Props> = ({ sizes, dispatch }) => {
 
   const mapOptionsToButtons = useMemo(
     () =>
-      sizes.map(size => (
+      state.availableSizes?.map(size => (
         <Option key={size._id} option={size} handler={handleSizeSelection} />
       )),
-    [sizes, handleSizeSelection]
+    [state.availableSizes, handleSizeSelection]
   );
 
   return (

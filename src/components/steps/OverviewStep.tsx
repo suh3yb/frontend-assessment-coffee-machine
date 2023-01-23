@@ -1,16 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
 
-import { Action, State } from '../../types';
+import { StepProps } from '../../types';
 import { Layout } from '../shared/Layout';
 import { OverviewItem } from '../shared/OverviewItem';
 import { Separator } from '../shared/Separator';
 import { Button as BaseButton } from '../shared/Button';
-
-interface Props {
-  state: State;
-  dispatch: React.Dispatch<Action>;
-}
 
 const OverviewWrapper = styled.ul`
   margin-bottom: 48px;
@@ -28,13 +23,13 @@ const Button = styled(BaseButton)`
   letter-spacing: 0.374px;
 `;
 
-const OverviewStep: React.FC<Props> = ({ state, dispatch }) => {
+const OverviewStep: React.FC<StepProps> = ({ state, dispatch }) => {
   const selectedExtraIds = Object.keys(state.selectedExtras);
 
   return (
     <Layout
       subtitle="Brew with Lex"
-      title="Select your extra's"
+      title="Overview"
       optionNodes={
         <>
           <OverviewWrapper>

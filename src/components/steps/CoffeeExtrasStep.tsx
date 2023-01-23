@@ -1,16 +1,11 @@
 import React, { useCallback, useEffect, useMemo } from 'react';
 
-import { Action, State } from '../../types';
+import { StepProps } from '../../types';
 import { OptionWithSubselection } from '../shared/OptionWithSubselection';
 import { Layout } from '../shared/Layout';
 import { BackButton } from '../shared/BackButton';
 
-interface Props {
-  state: State;
-  dispatch: React.Dispatch<Action>;
-}
-
-const CoffeeExtrasStep: React.FC<Props> = ({ state, dispatch }) => {
+const CoffeeExtrasStep: React.FC<StepProps> = ({ state, dispatch }) => {
   useEffect(() => {
     // Go to overview if all extras are selected
     if (!state.availableExtras || state.activeStepIndex !== 2) return;
