@@ -4,6 +4,7 @@ This is a project that mimics an app that allows users to brew their favourite c
 It was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 **Node version v18.13.0 was used while building this project.**
+**The project is not built responsive. Until it supports more screen sizes, it looks the best in 375x812 resolution/screen dimension**
 
 ## Application usage
 
